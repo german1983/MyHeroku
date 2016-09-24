@@ -18,15 +18,16 @@ router.get('/about', function(req, res) {
   res.send('About questions');
 });
 
-// on routes that end in /bears
+// on routes that end in /questions
 // ----------------------------------------------------
 router.route('/')
 
-	// create a bear (accessed at POST http://localhost:8080/bears)
+	// create a question (accessed at POST http://localhost:8080/questions)
 	.post(function(req, res) {
 		
-		var question = new Question();		// create a new instance of the Bear model
-		question.question = req.body.question;  // set the bears name (comes from the request)
+		var question = new Question();		// create a new instance of the Question model
+		question.question = req.body.question;  // set the question (comes from the request)
+		question._type = req.body.type_id;  // set the _type (comes from the request)
         
 		question.save(function(err) {
 			if (err)
@@ -38,7 +39,7 @@ router.route('/')
 		
 	})
 
-	// get all the bears (accessed at GET http://localhost:8080/api/bears)
+	// get all the Questions (accessed at GET http://localhost:8080/api/questions)
 	.get(function(req, res) {
 		Question.find(function(err, questions) {
 			if (err)
@@ -48,11 +49,11 @@ router.route('/')
 		});
 	});
 
-// on routes that end in /bears/:bear_id
+// on routes that end in /questions/:question_id
 // ----------------------------------------------------
 router.route('/:question_id')
 
-	// get the bear with that id
+	// get the question with that id
 	.get(function(req, res) {
 		Question.findById(req.params.question_id, function(err, question) {
 			if (err)
@@ -61,14 +62,15 @@ router.route('/:question_id')
 		});
 	})
 
-	// update the bear with this id
+	// update the question with this id
 	.put(function(req, res) {
 		Question.findById(req.params.question_id, function(err, question) {
 
 			if (err)
 				res.send(err);
 
-			question.question = req.body.question;
+			question.question = req.body.question;  // set the question (comes from the request)
+			question._type = req.body.type_id;  // set the _type (comes from the request)
 			question.save(function(err) {
 				if (err)
 					res.send(err);
@@ -79,7 +81,7 @@ router.route('/:question_id')
 		});
 	})
 
-	// delete the bear with this id
+	// delete the question with this id
 	.delete(function(req, res) {
 		Question.remove({
 			_id: req.params.question_id

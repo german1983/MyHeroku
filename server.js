@@ -30,17 +30,34 @@ app.get('/', function(request, response) {
 // =============================================================================
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://sa:sa123@ds029486.mlab.com:29486/techscreening'); // connect to our database
+mongoose.Promise = require('q').Promise;
 
 // ROUTES FOR OUR API
 // =============================================================================
-var bears = require('./routes/bear');
 var questions = require('./routes/question');
 var answers = require('./routes/answer');
+var evaluations = require('./routes/evaluation');
+var questionOptions = require('./routes/questionOption');
+var options = require('./routes/option');
+var tests = require('./routes/test');
+var evaluationQuestions = require('./routes/evaluationQuestion');
+var levels = require('./routes/level');
+var questionTypes = require('./routes/questionType');
+var technologies = require('./routes/technology');
+var testQuestions = require('./routes/testQuestion');
 
 // REGISTER OUR ROUTES -------------------------------
-app.use('/api', bears);
 app.use('/api/questions', questions);
 app.use('/api/answers', answers);
+app.use('/api/evaluations', evaluations);
+app.use('/api/questionOptions', questionOptions);
+app.use('/api/options', options);
+app.use('/api/tests', tests);
+app.use('/api/evaluationQuestions', evaluationQuestions);
+app.use('/api/levels', levels);
+app.use('/api/questionTypes', questionTypes);
+app.use('/api/technologies', technologies);
+app.use('/api/testQuestions', testQuestions);
 
 // START THE SERVER
 // =============================================================================

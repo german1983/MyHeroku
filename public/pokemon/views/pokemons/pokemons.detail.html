@@ -1,0 +1,4 @@
+<h1>{{pokemon.Id}} - {{pokemon.Name}}</h1>
+<div><img ng-src="assets/img/pokemon/{{pokemon.Id}}.png" width="50px"/></div>
+<div><a class="btn" ui-sref="pokemons.detail.evaluate({pokemonId:pokemon.Id})">Evaluate <b>{{pokemon.Name}}</b></a></div>
+<div ui-view></div>

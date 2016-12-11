@@ -1,0 +1,32 @@
+{
+    "IVGroups":[
+ {
+   "IVGroup": 1,
+   "IVPercentajeMin": 0.801,
+   "IVPercentajeMax": 1,
+   "IVMin": 15,
+   "IVMax": 15
+ },
+ {
+   "IVGroup": 2,
+   "IVPercentajeMin": 0.667,
+   "IVPercentajeMax": 0.8,
+   "IVMin": 13,
+   "IVMax": 14
+ },
+ {
+   "IVGroup": 3,
+   "IVPercentajeMin": 0.5,
+   "IVPercentajeMax": 0.666,
+   "IVMin": 8,
+   "IVMax": 12
+ },
+ {
+   "IVGroup": 4,
+   "IVPercentajeMin": 0,
+   "IVPercentajeMax": 0.499,
+   "IVMin": 0,
+   "IVMax": 7
+ }
+]
+}

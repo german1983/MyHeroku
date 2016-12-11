@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="pokemon">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='css/main.css' />
+  </head>
+  <body>
+    <section ui-view></section>
+
+  <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.min.js"></script>
+    <script src="/pokemon/js/libs/angular-ui-router.min.js" ></script>
+
+  <!-- Base App -->
+     <script src="/pokemon/app/app.js" ></script>
+
+  <!-- Utils App -->
+     <script src="/pokemon/common/utils/utils-service.js" ></script>
+     <script src="/pokemon/app/shared/shared-service.js" ></script>
+ 
+  <!-- Contacts Controllers/Services -->
+     <script src="/pokemon/app/contacts/contacts.js" ></script>
+     <script src="/pokemon/app/contacts/contacts-service.js" ></script>
+
+  <!-- Pokemons Controllers/Services -->
+     <script src="/pokemon/app/pokemons/pokemons.js" ></script>
+     <script src="/pokemon/app/pokemons/pokemons-service.js" ></script>
+
+  <!-- Bootstrap -->
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>

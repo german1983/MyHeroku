@@ -1,0 +1,104 @@
+<form name="evaluationForm" ng-submit="evaluate(pokemon)">
+    <div class="row">
+        <div id="baseStats">
+            <div class="col-md-4">
+                <div class="col-md-12">
+                    Base ATK
+                </div>
+                <div class="col-md-12">
+                    {{pokemon.Attack}}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-12">
+                    Base DEF
+                </div>
+                <div class="col-md-12">
+                    {{pokemon.Defense}}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-12">
+                    Base STA
+                </div>
+                <div class="col-md-12">
+                    {{pokemon.Stamina}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="trainer"> My Trainer is: </label>
+            <select name="trainer" id="trainer" ng-model="pokemon.selectedTrainer" ng-change="trainerSelected();">
+                <option ng-repeat="trainer in allTrainers" value="{{trainer}}">{{trainer.Trainer}}</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="cp">CP</label>
+            <input id="cp" ng-model="pokemon.cp" type="number" min="10" max="5000"/>
+        </div>
+        <div class="col-md-3">
+            <label for="hp">HP</label>
+            <input id="hp" ng-model="pokemon.hp" type="number" min="10" max="500"/>
+        </div>
+        <div class="col-md-6">
+            <label for="dust"> Stardust</label>
+            <select name="dust" id="dust" ng-model="pokemon.dust">
+                <option ng-repeat="startdust in allStartDust" value="{{startdust}}">{{startdust.Startdust}}</option>
+            </select>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-3">
+                 <div class="col-md-12">
+                    <label for="powered">Powered</label>
+                </div>
+                <div class="col-md-12">
+                    <input id="Powered" type="checkbox" ng-model="pokemon.isPowered" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="col-md-12">
+                    <label for="hasMaxATK">Attack</label>
+                </div>
+                <div class="col-md-12">
+                    <input id="hasMaxATK" type="checkbox" ng-model="pokemon.hasMaxATK" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="col-md-12">
+                    <label for="hasMaxDEF">Defense</label>
+                </div>
+                <div class="col-md-12">
+                     <input id="hasMaxDEF" type="checkbox" ng-model="pokemon.hasMaxDEF" />
+               </div>
+            </div>
+            <div class="col-md-3">
+                <div class="col-md-12">
+                    <label for="hasMaxSTA">Health</label>
+                    
+                </div>
+                <div class="col-md-12">
+                     <input id="hasMaxSTA" type="checkbox" ng-model="pokemon.hasMaxSTA" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" ng-if="allMessages.length > 0">
+            <label for="message1"> 1st Message from Trainer: </label>
+            <select name="message1" id="message1" ng-model="pokemon.selectedMessage1">
+                <option ng-repeat="message in allMessages" value="{{message}}">{{message.Message}}</option>
+            </select>
+        </div>
+        <div class="col-md-12" ng-if="allMessages2.length > 0">
+            <label for="message2"> 1st Message from Trainer: </label>
+            <select name="message2" id="message2" ng-model="pokemon.selectedMessage2">
+                <option ng-repeat="message in allMessages2" value="{{message}}">{{message.Message}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" id="submit" value="Evaluate" />
+    </div>
+</form>
+<div ui-view></div>

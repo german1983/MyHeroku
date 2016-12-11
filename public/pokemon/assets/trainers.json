@@ -1,0 +1,16 @@
+{
+    "trainers":[
+ {
+   "Id": 1,
+   "Trainer": "Mystic"
+ },
+ {
+   "Id": 2,
+   "Trainer": "Valor"
+ },
+ {
+   "Id": 3,
+   "Trainer": "Instinct"
+ }
+]
+}

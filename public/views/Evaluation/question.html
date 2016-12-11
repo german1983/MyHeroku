@@ -1,0 +1,15 @@
+<div id="QuestionDiv" ng-app="app" ng-controller="EvaluationQuestionController" ng-init="init();">
+    <div>You have {{counter}} seconds left</div>
+    <div>Question {{questionNumber}}/{{totalQuestions}}</div>
+    <form ng-submit="answerQuestion()">
+        <p>{{question.question}}</p>
+        <ul>Choose your option:
+            <li ng-repeat="option in options">
+                <label>
+                    <input type="radio" name="answer" ng-model="selectedOption.option" ng-value="option" />{{option.answerOption}}
+                </label>
+            </li>
+        </ul>
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+</div>

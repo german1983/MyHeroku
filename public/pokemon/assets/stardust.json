@@ -1,0 +1,105 @@
+{
+  "startdust":[
+ {
+   "Id": 1,
+   "Startdust": 200,
+   "Level": 1
+ },
+ {
+   "Id": 2,
+   "Startdust": 400,
+   "Level": 3
+ },
+ {
+   "Id": 3,
+   "Startdust": 600,
+   "Level": 5
+ },
+ {
+   "Id": 4,
+   "Startdust": 800,
+   "Level": 7
+ },
+ {
+   "Id": 5,
+   "Startdust": 1000,
+   "Level": 9
+ },
+ {
+   "Id": 6,
+   "Startdust": 1300,
+   "Level": 11
+ },
+ {
+   "Id": 7,
+   "Startdust": 1600,
+   "Level": 13
+ },
+ {
+   "Id": 8,
+   "Startdust": 1900,
+   "Level": 15
+ },
+ {
+   "Id": 9,
+   "Startdust": 2200,
+   "Level": 17
+ },
+ {
+   "Id": 10,
+   "Startdust": 2500,
+   "Level": 19
+ },
+ {
+   "Id": 11,
+   "Startdust": 3000,
+   "Level": 21
+ },
+ {
+   "Id": 12,
+   "Startdust": 3500,
+   "Level": 23
+ },
+ {
+   "Id": 13,
+   "Startdust": 4000,
+   "Level": 25
+ },
+ {
+   "Id": 14,
+   "Startdust": 4500,
+   "Level": 27
+ },
+ {
+   "Id": 15,
+   "Startdust": 5000,
+   "Level": 29
+ },
+ {
+   "Id": 16,
+   "Startdust": 6000,
+   "Level": 31
+ },
+ {
+   "Id": 17,
+   "Startdust": 7000,
+   "Level": 33
+ },
+ {
+   "Id": 18,
+   "Startdust": 8000,
+   "Level": 35
+ },
+ {
+   "Id": 19,
+   "Startdust": 9000,
+   "Level": 37
+ },
+ {
+   "Id": 20,
+   "Startdust": 10000,
+   "Level": 39
+ }
+]
+
+}

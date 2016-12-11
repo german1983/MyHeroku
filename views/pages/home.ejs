@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/main.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <ng-view></ng-view>
+
+    <!-- Libraries -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.min.js"></script>
+
+  <!-- Base App -->
+     <script src="/app/app.module.js" ></script>
+     <script src="/app/app.config.js" ></script>
+     <script src="/app/directives.js" ></script>
+     <script src="/app/services.js" ></script>
+
+  <!-- Todo Controllers/Services -->
+     <script src="/app/Todo/todo-controller.js" ></script>
+     <script src="/app/Todo/todo-details-controller.js" ></script>
+     <script src="/app/Todo/todo-service.js" ></script>
+
+  <!-- Evaluation Controllers/Services -->
+     <script src="/app/Evaluation/evaluation-base-controller.js" ></script>
+     <script src="/app/Evaluation/evaluation-base-service.js" ></script>
+     <script src="/app/Evaluation/Shell/evaluation-shell-controller.js" ></script>
+     <script src="/app/Evaluation/Shell/evaluation-shell-service.js" ></script>
+     <script src="/app/Evaluation/Question/evaluation-question-controller.js" ></script>
+     <script src="/app/Evaluation/Question/evaluation-question-service.js" ></script>
+     <script src="/app/Evaluation/Shared/evaluation-shared-service.js" ></script>
+
+  <!-- Exam Controllers/Services -->
+     <script src="/app/Exam/exam-base-controller.js" ></script>
+     <script src="/app/Exam/exam-base-service.js" ></script>
+     <script src="/app/Exam/Shell/exam-shell-controller.js" ></script>
+     <script src="/app/Exam/Shell/exam-shell-service.js" ></script>
+     <script src="/app/Exam/Shared/exam-shared-service.js" ></script>
+
+
+  <!-- Routes -->
+     <script src="/app/app.routes.js" ></script>
+  </body>
+</html>

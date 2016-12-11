@@ -25,12 +25,24 @@ app.set('view engine', 'ejs');
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
+app.get('/home', function(request, response) {
+  response.render('pages/home', { title: 'ngTodo' });
+});
+app.get('/pokemon', function(request, response) {
+  response.render('pokemon/home', { title: 'Pokemon Go IV calculator!' });
+});
+
 
 // DATABASE CONNECTION
 // =============================================================================
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://sa:sa123@ds029486.mlab.com:29486/techscreening'); // connect to our database
-mongoose.Promise = require('q').Promise;
+//mongoose.Promise = require('q').Promise;
+// Use native Node promises
+mongoose.Promise = global.Promise;
+// connect to MongoDB
+mongoose.connect('mongodb://sa:sa123@ds029486.mlab.com:29486/techscreening')
+  .then(() =>  console.log('connection succesful'))
+  .catch((err) => console.error(err));
 
 // ROUTES FOR OUR API
 // =============================================================================

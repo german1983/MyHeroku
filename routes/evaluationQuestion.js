@@ -28,6 +28,8 @@ router.route('/')
 		var evaluationQuestion = new EvaluationQuestion();		// create a new instance of the EvaluationQuestion model
 		evaluationQuestion._question = req.body.question_id;  // set the _question (comes from the request)
 		evaluationQuestion._evaluation = req.body.evaluation_id;  // set the _evaluation (comes from the request)
+		evaluationQuestion.assignedTime = req.body.assignedTime;
+		evaluationQuestion.questionOrder = req.body.questionOrder;
         
 		evaluationQuestion.save(function(err) {
 			if (err)
@@ -48,6 +50,24 @@ router.route('/')
 			res.json(evaluationQuestions);
 		});
 	});
+
+
+router.route('/:evaluation_id/question/:questionNumber')
+
+	// get all the Questions (accessed at GET http://localhost:8080/api/questions)
+	.get(function(req, res) {
+		
+		EvaluationQuestion.find({_evaluation: req.params.evaluation_id, questionOrder: req.params.questionNumber})
+			.populate('_question')
+			.exec(function(err, evaluationQuestions) {
+				if (err)
+					res.send(err);
+				res.json(evaluationQuestions);
+
+			});
+	});
+
+
 
 // on routes that end in /evaluationQuestions/:evaluationQuestion_id
 // ----------------------------------------------------
@@ -75,6 +95,9 @@ router.route('/:evaluationQuestion_id')
 
 			evaluationQuestion._question = req.body.question_id;  // set the _question (comes from the request)
 			evaluationQuestion._evaluation = req.body.evaluation_id;  // set the _evaluation (comes from the request)
+			evaluationQuestion.assignedTime = req.body.assignedTime;
+			evaluationQuestion.questionOrder = req.body.questionOrder;
+
  			evaluationQuestion.save(function(err) {
 				if (err)
 					res.send(err);

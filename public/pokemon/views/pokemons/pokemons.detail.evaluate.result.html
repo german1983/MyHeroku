@@ -1,0 +1,30 @@
+<table>
+    <thead>
+        <th>Level</th>
+        <th>Attack</th>
+        <th>Defense</th>
+        <th>Stamina</th>
+        <th>CP</th>
+        <th>HP</th>
+    </thead>
+
+    <tr ng-repeat="v in result.valids">
+        <td >{{v[0]}}</td>
+        <td >{{v[1]}}</td>
+        <td >{{v[2]}}</td>
+        <td >{{v[3]}}</td>
+        <td >{{result.cp}}</td>
+        <td >{{result.hp}}</td>
+    </tr>
+</table>
+
+<style>
+    th {
+        width: 19%;
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
+</style>

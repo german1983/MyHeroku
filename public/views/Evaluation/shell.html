@@ -1,0 +1,8 @@
+<div id="ChartLaunchDiv" ng-app="app" ng-controller="EvaluationShellController" ng-init="init();" >
+    <form ng-submit="startEvaluation()" ng-hide="evaluationStarted">
+        Whenever you are ready to begin press the button
+        <input type="submit" value="Start" id="btnStartEvaluation"/>
+    </form>
+    <ng-include src="questionUrl" ng-if="evaluationStarted"></ng-include>
+    <ng-include src="finishedUrl" ng-if="evaluationFinished"></ng-include>
+</div>

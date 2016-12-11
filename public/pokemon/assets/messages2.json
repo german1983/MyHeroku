@@ -1,0 +1,76 @@
+{
+     "messages":[
+ {
+   "Id": 1,
+   "Trainer": 1,
+   "Level": 1,
+   "Message": "Its stats exceed my calculations. It's incredible!"
+ },
+ {
+   "Id": 2,
+   "Trainer": 1,
+   "Level": 2,
+   "Message": "I am certainly impressed by its stats, I must say."
+ },
+ {
+   "Id": 3,
+   "Trainer": 1,
+   "Level": 3,
+   "Message": "Its stats are noticeably trending to the positive."
+ },
+ {
+   "Id": 4,
+   "Trainer": 1,
+   "Level": 4,
+   "Message": "Its stats are not out of the norm, in my estimation."
+ },
+ {
+   "Id": 5,
+   "Trainer": 2,
+   "Level": 1,
+   "Message": "I'm blown away by its stats. WOW!"
+ },
+ {
+   "Id": 6,
+   "Trainer": 2,
+   "Level": 2,
+   "Message": "It's got excellent stats! How exciting!"
+ },
+ {
+   "Id": 7,
+   "Trainer": 2,
+   "Level": 3,
+   "Message": "Its stats indicate that in battle, it'll get the job done."
+ },
+ {
+   "Id": 8,
+   "Trainer": 2,
+   "Level": 4,
+   "Message": "Its stats don't point to greatness in battle."
+ },
+ {
+   "Id": 9,
+   "Trainer": 3,
+   "Level": 1,
+   "Message": "Its stats are the best I've ever seen! No doubt about it!"
+ },
+ {
+   "Id": 10,
+   "Trainer": 3,
+   "Level": 2,
+   "Message": "Its stats are really strong! Impressive."
+ },
+ {
+   "Id": 11,
+   "Trainer": 3,
+   "Level": 3,
+   "Message": "It's definitely got some good stats. Definitely!"
+ },
+ {
+   "Id": 12,
+   "Trainer": 3,
+   "Level": 4,
+   "Message": "Its stats are all right, but kinda basic, as far as I can see."
+ }
+]
+}

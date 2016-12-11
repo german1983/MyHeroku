@@ -1,6 +1,9 @@
 var express     = require('express');
 var router      = express.Router();
 var Question    = require('../app/models/question');
+var QuestionOption    = require('../app/models/questionOption');
+var Option    	= require('../app/models/option');
+var async = require('async');
 
 // middleware specific to this router
 router.use(function timeLog(req, res, next) {
@@ -49,6 +52,31 @@ router.route('/')
 		});
 	});
 
+	
+router.route('/:question_id/options')
+
+	// get all the Questions (accessed at GET http://localhost:8080/api/questions)
+	.get(function(req, res) {
+		
+		QuestionOption.find({_question: req.params.question_id}, function(err, questionOptions) {
+			if (err)
+				res.send(err);
+			//console.log("All QuestionOptions are: {0}", questionOptions);
+
+			var allOptionIds = [];
+			questionOptions.forEach(function (item) {
+				allOptionIds.push(item._option);
+			})
+
+			Option.find({_id: { $in: allOptionIds }}, function(err, options) {
+				if (err)
+					res.send(err);
+			//	console.log("My Options after Find are: {0}", options);
+				res.json(options);
+			});
+		});
+	});
+	
 // on routes that end in /questions/:question_id
 // ----------------------------------------------------
 router.route('/:question_id')

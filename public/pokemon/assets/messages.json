@@ -1,0 +1,76 @@
+{
+    "messages":[
+        {
+            "Id": 1,
+            "Trainer": 1,
+            "Level": 1,
+            "Message": "Overall, your Pokemon is a wonder! What a breathtaking Pokemon!"
+        },
+        {
+            "Id": 2,
+            "Trainer": 1,
+            "Level": 2,
+            "Message": "Overall, your Pokemon has certainly caught my attention."
+        },
+        {
+            "Id": 3,
+            "Trainer": 1,
+            "Level": 3,
+            "Message": "Overall, your Pokemon is above average."
+        },
+        {
+            "Id": 4,
+            "Trainer": 1,
+            "Level": 4,
+            "Message": "Overall, your Pokemon is not likely to make much headway in battle"
+        },
+        {
+            "Id": 5,
+            "Trainer": 2,
+            "Level": 1,
+            "Message": "Overall, your Pokemon simply amazes me. It can accomplish anything!"
+        },
+        {
+            "Id": 6,
+            "Trainer": 2,
+            "Level": 2,
+            "Message": "Overall, your Pokemon is a strong Pokemon. You should be proud!"
+        },
+        {
+            "Id": 7,
+            "Trainer": 2,
+            "Level": 3,
+            "Message": "Overall, your Pokemon is a decent Pokemon"
+        },
+        {
+            "Id": 8,
+            "Trainer": 2,
+            "Level": 4,
+            "Message": "Overall, your Pokemon may not be great in battle, but I still like it!"
+        },
+        {
+            "Id": 9,
+            "Trainer": 3,
+            "Level": 1,
+            "Message": "Overall, your Pokemon looks like it can really battle with the best of them!"
+        },
+        {
+            "Id": 10,
+            "Trainer": 3,
+            "Level": 2,
+            "Message": "Overall, your Pokemon is really strong!"
+        },
+        {
+            "Id": 11,
+            "Trainer": 3,
+            "Level": 3,
+            "Message": "Overall, your Pokemon is pretty decent!"
+        },
+        {
+            "Id": 12,
+            "Trainer": 3,
+            "Level": 4,
+            "Message": "Overall, your Pokemon has room for improvement as far as battling goes."
+        }
+    ]
+}

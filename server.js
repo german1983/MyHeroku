@@ -31,6 +31,9 @@ app.get('/home', function(request, response) {
 app.get('/pokemon', function(request, response) {
   response.render('pokemon/home', { title: 'Pokemon Go IV calculator!' });
 });
+app.get('/react', function(request, response) {
+  response.render('react/index', { title: 'This is my React' });
+});
 
 
 // DATABASE CONNECTION

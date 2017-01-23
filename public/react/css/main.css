@@ -45,3 +45,176 @@ a {
     width: 140px;
     height: 140px;
 }
+.primary img {
+    display: inline-block;
+    max-height: 90px;
+    max-width: 100%;
+}
+form.main .primary label {
+    flex: 1 0 100%;
+    padding: 5px 10px;
+}
+form.main .preview  {
+    padding: 0 0 0 10px;
+    width: 120px;
+    text-align: right;
+}
+form.main .select-list {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+    flex: 1 1 80%;
+}
+
+form.main .primary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px 20px 10px 10px;
+    margin-bottom: 1px;
+    position: relative;
+}
+
+form.main {
+    width: 800px;
+    margin: auto;
+}
+
+form.main .data-grid {
+    display: flex;
+    justify-content: space-around;
+}
+
+form.main .data-grid.header {
+    color: #303030;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+form.main .data-grid.header>div {
+    width: 100px;
+    text-align: center;
+    font-size: 16px;
+}
+
+form.main label.checkbox {
+    display: flex;
+    justify-content: center;
+}
+
+form.main label.checkbox {
+    margin-top: 24px;
+    font-size: 12px;
+    color: #666;
+}
+
+form.main label:last-child {
+    margin-bottom: 0;
+}
+
+form.main .checkbox {
+    line-height: 22px;
+}
+
+form.main h2.appraisal-toggle .teams img {
+    height: 35px;
+    margin: 0 5px;
+}
+
+form.main article.active h2 {
+    margin-bottom: 20px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #d0d0d0;
+}
+form.main h2.appraisal-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+form.main h2.toggle {
+    padding: 10px 20px;
+    position: relative;
+    margin-bottom: 0;
+    border-bottom: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+form.main h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+form.main .advanced label {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+form.main .advanced label input {
+    margin: 0 12px 0 5px;
+}
+
+form.main .advanced label.multi {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+form.main .advanced label.multi.active {
+    background: #f0f0f0;
+}
+
+form.main .advanced label.multi input {
+    width: auto;
+}
+
+form.main .advanced label.multi div {
+    flex-grow: 1;
+    color: #303030;
+}
+
+form.main .advanced label.multi div.check {
+    text-align: right;
+    margin-right: 12px;
+}
+
+form.main .advanced label.multi p {
+    margin: 0 12px;
+    padding: 3px 0;
+    font-size: 12px;
+    width: 30%;
+}
+
+form.main .advanced label.multi.double p {
+    width: calc(90% + 24px);
+}
+
+form.main .advanced .teams {
+    text-align: center;
+}
+
+form.main .advanced .teams .images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form.main .advanced .teams img {
+    height: 60px;
+    margin: 0 20px;
+    cursor: pointer;
+    transition: opacity 0.1s;
+}
+
+form.main .advanced .teams img.inactive {
+    opacity: 0.15;
+}
+
+form.main .advanced .teams img.inactive.instinct {
+    opacity: 0.3;
+}
+
+form.main .advanced .team-content {
+    display: none;
+}

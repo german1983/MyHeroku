@@ -12075,23 +12075,104 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Home = exports.Home = function (_React$Component) {
-    _inherits(Home, _React$Component);
+var Pokemon = function (_React$Component) {
+    _inherits(Pokemon, _React$Component);
+
+    function Pokemon() {
+        _classCallCheck(this, Pokemon);
+
+        return _possibleConstructorReturn(this, (Pokemon.__proto__ || Object.getPrototypeOf(Pokemon)).apply(this, arguments));
+    }
+
+    _createClass(Pokemon, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "a",
+                { href: "/en/pokemon/1-bulbasaur", "data-name": "{this.props.pokemon.Name}" },
+                React.createElement(
+                    "div",
+                    { className: "pokemon" },
+                    React.createElement(
+                        "h2",
+                        null,
+                        this.props.pokemon.Name
+                    ),
+                    React.createElement("img", { className: "lazy", src: 'https://pokemon.gameinfo.io/images/pokemon/' + this.props.pokemon.Id + '.png', style: { display: 'inline' } })
+                )
+            );
+        }
+    }]);
+
+    return Pokemon;
+}(React.Component);
+
+var PokemonList = function (_React$Component2) {
+    _inherits(PokemonList, _React$Component2);
+
+    function PokemonList() {
+        _classCallCheck(this, PokemonList);
+
+        return _possibleConstructorReturn(this, (PokemonList.__proto__ || Object.getPrototypeOf(PokemonList)).apply(this, arguments));
+    }
+
+    _createClass(PokemonList, [{
+        key: "render",
+        value: function render() {
+            var allPokemons = [];
+
+            if (this.props.all.pokemon !== undefined) {
+                this.props.all.pokemon.forEach(function (pokemon) {
+                    allPokemons.push(React.createElement(Pokemon, { key: pokemon.Id, pokemon: pokemon }));
+                });
+            }
+
+            return React.createElement(
+                "div",
+                { className: "grid pokemon-list wrappable" },
+                allPokemons
+            );
+        }
+    }]);
+
+    return PokemonList;
+}(React.Component);
+
+var Home = exports.Home = function (_React$Component3) {
+    _inherits(Home, _React$Component3);
 
     function Home() {
         _classCallCheck(this, Home);
 
-        return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+        var _this3 = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this));
+
+        _this3.state = {
+            pokemons: []
+        };
+        return _this3;
     }
 
     _createClass(Home, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            var _this4 = this;
+
+            var path = '../pokemon/assets/baseStats.json';
+
+            fetch(path).then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                _this4.setState({ pokemons: json });
+            });
+        }
+    }, {
         key: "render",
         value: function render() {
 
             return React.createElement(
                 "div",
                 null,
-                "Here goes the main content"
+                React.createElement(PokemonList, { all: this.state.pokemons })
             );
         }
     }]);
@@ -12176,16 +12257,34 @@ var IVCalculatorHome = exports.IVCalculatorHome = function (_React$Component) {
     function IVCalculatorHome() {
         _classCallCheck(this, IVCalculatorHome);
 
-        return _possibleConstructorReturn(this, (IVCalculatorHome.__proto__ || Object.getPrototypeOf(IVCalculatorHome)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (IVCalculatorHome.__proto__ || Object.getPrototypeOf(IVCalculatorHome)).call(this));
+
+        _this.state = {
+            pokemons: []
+        };
+        return _this;
     }
 
     _createClass(IVCalculatorHome, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            var path = '../pokemon/assets/baseStats.json';
+
+            fetch(path).then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                _this2.setState({ pokemons: json });
+            });
+        }
+    }, {
         key: "render",
         value: function render() {
             return React.createElement(
                 "div",
                 null,
-                React.createElement(_ivCalc.IVCalculator, null)
+                React.createElement(_ivCalc.IVCalculator, { all: this.state.pokemons })
             );
         }
     }]);
@@ -12234,10 +12333,11 @@ var EvolutionCalculator = exports.EvolutionCalculator = function (_React$Compone
     _createClass(EvolutionCalculator, [{
         key: "render",
         value: function render() {
+
             return React.createElement(
                 "div",
                 null,
-                "Here goes Evolution Calculator"
+                "Here goes IV Calculator"
             );
         }
     }]);
@@ -12253,7 +12353,7 @@ var EvolutionCalculator = exports.EvolutionCalculator = function (_React$Compone
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -12265,26 +12365,386 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var IVCalculator = exports.IVCalculator = function (_React$Component) {
-    _inherits(IVCalculator, _React$Component);
+	_inherits(IVCalculator, _React$Component);
 
-    function IVCalculator() {
-        _classCallCheck(this, IVCalculator);
+	function IVCalculator(props) {
+		_classCallCheck(this, IVCalculator);
 
-        return _possibleConstructorReturn(this, (IVCalculator.__proto__ || Object.getPrototypeOf(IVCalculator)).apply(this, arguments));
-    }
+		var _this = _possibleConstructorReturn(this, (IVCalculator.__proto__ || Object.getPrototypeOf(IVCalculator)).call(this, props));
 
-    _createClass(IVCalculator, [{
-        key: "render",
-        value: function render() {
-            return React.createElement(
-                "div",
-                null,
-                "Here goes IV Calculator"
-            );
-        }
-    }]);
+		_this.state = {
+			selectedPokemon: '1'
+		};
 
-    return IVCalculator;
+		_this.handleChange = _this.handleChange.bind(_this);
+		_this.handleSubmit = _this.handleSubmit.bind(_this);
+		return _this;
+	}
+
+	_createClass(IVCalculator, [{
+		key: 'handleChange',
+		value: function handleChange(event) {
+			this.setState({ selectedPokemon: event.target.value });
+		}
+	}, {
+		key: 'handleSubmit',
+		value: function handleSubmit(event) {
+			alert('Your Selected Pokemon is: ' + this.state.selectedPokemon);
+			event.preventDefault();
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var allOptions = [];
+
+			if (this.props.all.pokemon !== undefined) {
+				this.props.all.pokemon.forEach(function (pokemon) {
+					allOptions.push(React.createElement(
+						'option',
+						{ key: pokemon.Id, value: pokemon.Id },
+						pokemon.Name
+					));
+				});
+			}
+			return React.createElement(
+				'form',
+				{ onSubmit: this.handleSubmit, className: 'main calculate', autoComplete: 'off' },
+				React.createElement(
+					'article',
+					{ className: 'primary' },
+					React.createElement(
+						'label',
+						null,
+						'Choose your Pok\xE9mon',
+						React.createElement('br', null)
+					),
+					React.createElement(
+						'select',
+						{ value: this.state.selectedPokemon, onChange: this.handleChange, name: 'pokemon', tabIndex: '-1', className: 'select2-hidden-accessible', 'aria-hidden': 'true' },
+						React.createElement('option', null),
+						allOptions
+					),
+					React.createElement(
+						'div',
+						{ className: 'preview' },
+						React.createElement('img', { src: '/images/pokemon/1.png' })
+					)
+				),
+				React.createElement(
+					'article',
+					{ className: 'secondary' },
+					React.createElement(
+						'div',
+						{ className: 'data-grid header' },
+						React.createElement(
+							'div',
+							null,
+							'CP'
+						),
+						React.createElement(
+							'div',
+							null,
+							'HP'
+						),
+						React.createElement(
+							'div',
+							null,
+							'Dust'
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'data-values' },
+						React.createElement(
+							'div',
+							{ className: 'data-grid' },
+							React.createElement(
+								'label',
+								null,
+								React.createElement('input', { type: 'number', lang: 'nb', name: 'cp', placeholder: 'CP' })
+							),
+							React.createElement(
+								'label',
+								null,
+								React.createElement('input', { type: 'number', name: 'hp', placeholder: 'HP' })
+							),
+							React.createElement(
+								'label',
+								null,
+								React.createElement('input', { type: 'number', name: 'dust', placeholder: 'Dust' })
+							)
+						)
+					),
+					React.createElement(
+						'label',
+						{ className: 'checkbox' },
+						React.createElement(
+							'div',
+							{ className: 'check' },
+							React.createElement('input', { type: 'checkbox', name: 'ct' })
+						),
+						React.createElement(
+							'p',
+							null,
+							'You have just caught this Pok\xE9mon and not powered it up.'
+						)
+					)
+				),
+				React.createElement(
+					'article',
+					{ className: 'secondary toggleable' },
+					React.createElement(
+						'h2',
+						{ className: 'toggle appraisal-toggle' },
+						React.createElement(
+							'div',
+							{ className: 'title' },
+							React.createElement('i', { className: 'fa fa-angle-right' }),
+							React.createElement('i', { className: 'fa fa-angle-down' }),
+							'Appraisal'
+						),
+						React.createElement(
+							'div',
+							{ className: 'teams' },
+							React.createElement('img', { src: '/images/tools/team-mystic-vector.svg', 'data-team': 'mystic' }),
+							React.createElement('img', { src: '/images/tools/team-valor-vector.svg', 'data-team': 'valor' }),
+							React.createElement('img', { src: '/images/tools/team-instinct-vector.svg', 'data-team': 'instinct', className: 'instinct' })
+						),
+						React.createElement(
+							'div',
+							{ className: 'reset' },
+							React.createElement('i', { className: 'fa fa-undo' })
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'advanced' },
+						React.createElement(
+							'div',
+							{ className: 'teams' },
+							React.createElement(
+								'p',
+								null,
+								'Choose your team:'
+							),
+							React.createElement(
+								'div',
+								{ className: 'images' },
+								React.createElement('img', { src: '/images/tools/team-mystic-vector.svg', 'data-team': 'mystic' }),
+								React.createElement('img', { src: '/images/tools/team-valor-vector.svg', 'data-team': 'valor' }),
+								React.createElement('img', { src: '/images/tools/team-instinct-vector.svg', 'data-team': 'instinct', className: 'instinct' })
+							),
+							React.createElement('hr', null)
+						),
+						React.createElement(
+							'div',
+							{ className: 'team-content' },
+							React.createElement(
+								'div',
+								{ className: 'check-grid' },
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'checkbox', name: 'comment', value: '1' }),
+									React.createElement('p', { 'data-text': 'overall' })
+								),
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'checkbox', name: 'comment', value: '2' }),
+									React.createElement('p', { 'data-text': 'overall' })
+								),
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'checkbox', name: 'comment', value: '3' }),
+									React.createElement('p', { 'data-text': 'overall' })
+								),
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'checkbox', name: 'comment', value: '4' }),
+									React.createElement('p', { 'data-text': 'overall' })
+								)
+							),
+							React.createElement('hr', null),
+							React.createElement(
+								'div',
+								{ className: 'attribute' },
+								React.createElement(
+									'p',
+									null,
+									React.createElement('span', { 'data-text-part': 'first' }),
+									React.createElement(
+										'select',
+										{ name: 'best_attr', className: 'inline', size: '4' },
+										React.createElement(
+											'option',
+											{ value: '' },
+											'--'
+										),
+										React.createElement(
+											'option',
+											{ value: 'att' },
+											'Attack'
+										),
+										React.createElement(
+											'option',
+											{ value: 'sta' },
+											'HP'
+										),
+										React.createElement(
+											'option',
+											{ value: 'def' },
+											'Defense'
+										)
+									),
+									React.createElement('span', { 'data-text-part': 'last' })
+								),
+								React.createElement(
+									'div',
+									{ className: 'labels', style: { display: 'none' } },
+									React.createElement(
+										'label',
+										{ className: 'fixed-center' },
+										React.createElement('input', { type: 'checkbox', name: 'extra_attr', value: 'att' }),
+										React.createElement('span', { 'data-text': 'attributes', 'data-replace': 'Attack' })
+									),
+									React.createElement(
+										'label',
+										{ className: 'fixed-center' },
+										React.createElement('input', { type: 'checkbox', name: 'extra_attr', value: 'sta' }),
+										React.createElement('span', { 'data-text': 'attributes', 'data-replace': 'HP' })
+									),
+									React.createElement(
+										'label',
+										{ className: 'fixed-center' },
+										React.createElement('input', { type: 'checkbox', name: 'extra_attr', value: 'def' }),
+										React.createElement('span', { 'data-text': 'attributes', 'data-replace': 'Defense' })
+									)
+								)
+							),
+							React.createElement('hr', null),
+							React.createElement(
+								'div',
+								{ className: 'check-grid' },
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'checkbox', name: 'stats', value: '1' }),
+									React.createElement('p', { 'data-text': 'stats' })
+								),
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'checkbox', name: 'stats', value: '2' }),
+									React.createElement('p', { 'data-text': 'stats' })
+								),
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'checkbox', name: 'stats', value: '3' }),
+									React.createElement('p', { 'data-text': 'stats' })
+								),
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'checkbox', name: 'stats', value: '4' }),
+									React.createElement('p', { 'data-text': 'stats' })
+								)
+							)
+						)
+					)
+				),
+				React.createElement(
+					'article',
+					{ className: 'secondary toggleable' },
+					React.createElement(
+						'h2',
+						{ className: 'toggle advanced-toggle' },
+						React.createElement(
+							'div',
+							{ className: 'title' },
+							React.createElement('i', { className: 'fa fa-angle-right' }),
+							React.createElement('i', { className: 'fa fa-angle-down' }),
+							'Advanced options'
+						),
+						React.createElement(
+							'div',
+							{ className: 'reset' },
+							React.createElement('i', { className: 'fa fa-undo' })
+						)
+					),
+					React.createElement(
+						'div',
+						{ className: 'advanced' },
+						React.createElement(
+							'label',
+							{ className: 'multi double' },
+							React.createElement(
+								'div',
+								{ className: 'check' },
+								React.createElement('input', { type: 'checkbox', name: 'ev' })
+							),
+							React.createElement(
+								'p',
+								null,
+								'You have powered up the Pok\xE9mon and the next power-up requires a higher amount of stardust. **'
+							)
+						),
+						React.createElement('hr', null),
+						React.createElement(
+							'p',
+							{ className: 'add-levels' },
+							'Enter the Pok\xE9mon\'s new stats after powering up to narrow down the results:     '
+						),
+						React.createElement(
+							'div',
+							{ className: 'data-values new' },
+							React.createElement(
+								'div',
+								{ className: 'data-grid' },
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'number', lang: 'nb', name: 'cp', placeholder: 'CP' })
+								),
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'number', name: 'hp', placeholder: 'HP' })
+								),
+								React.createElement(
+									'label',
+									null,
+									React.createElement('input', { type: 'number', name: 'dust', placeholder: 'Dust' })
+								)
+							)
+						)
+					)
+				),
+				React.createElement(
+					'article',
+					{ className: 'secondary' },
+					React.createElement('div', { className: 'message alert' }),
+					React.createElement(
+						'div',
+						{ className: 'submit' },
+						React.createElement(
+							'button',
+							{ type: 'reset', className: 'reset' },
+							'Reset'
+						),
+						React.createElement('input', { type: 'submit', value: 'Calculate \xBB' }),
+						'// ',
+						React.createElement('button', { type: 'submit', className: 'calculate' })
+					)
+				)
+			);
+		}
+	}]);
+
+	return IVCalculator;
 }(React.Component);
 
 /***/ }),
@@ -26901,6 +27361,8 @@ module.exports = function (str) {
 "use strict";
 
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
@@ -26919,17 +27381,43 @@ var _reactRouter = __webpack_require__(71);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _reactDom.render)(_react2.default.createElement(
-  _reactRouter.Router,
-  { history: _reactRouter.hashHistory },
-  _react2.default.createElement(
-    _reactRouter.Route,
-    { path: '/', component: _main.Main },
-    _react2.default.createElement(_reactRouter.IndexRoute, { component: _home.Home }),
-    _react2.default.createElement(_reactRouter.Route, { path: '/iv', component: _ivCalcHome.IVCalculatorHome }),
-    _react2.default.createElement(_reactRouter.Route, { path: '/evolution', component: _evolutionCalcHome.EvolutionCalculatorHome })
-  )
-), document.getElementById('root'));
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Index = function (_React$Component) {
+  _inherits(Index, _React$Component);
+
+  function Index() {
+    _classCallCheck(this, Index);
+
+    return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).apply(this, arguments));
+  }
+
+  _createClass(Index, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _reactRouter.Router,
+        { history: _reactRouter.hashHistory },
+        _react2.default.createElement(
+          _reactRouter.Route,
+          { path: '/', component: _main.Main },
+          _react2.default.createElement(_reactRouter.IndexRoute, { component: _home.Home }),
+          _react2.default.createElement(_reactRouter.Route, { path: '/iv', component: _ivCalcHome.IVCalculatorHome }),
+          _react2.default.createElement(_reactRouter.Route, { path: '/evolution', component: _evolutionCalcHome.EvolutionCalculatorHome })
+        ),
+        this.props.children
+      );
+    }
+  }]);
+
+  return Index;
+}(_react2.default.Component);
+
+ReactDOM.render(_react2.default.createElement(Index, null), document.getElementById('root'));
 
 /***/ })
 /******/ ]);

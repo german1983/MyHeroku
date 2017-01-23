@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var app        = express();
 var morgan     = require('morgan');
 
+
 // configure app
 app.use(morgan('dev')); // log requests to the console
 
@@ -34,7 +35,6 @@ app.get('/pokemon', function(request, response) {
 app.get('/react', function(request, response) {
   response.render('react/index', { title: 'This is my React' });
 });
-
 
 // DATABASE CONNECTION
 // =============================================================================

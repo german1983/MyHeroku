@@ -1,4 +1,47 @@
 .navbar-nav > li > .active{
     color: #555;
     background-color: #e7e7e7;
-}    
+}
+
+.grid.wrappable {
+    flex-wrap: wrap;
+}
+
+.grid {
+    display: flex;
+    margin: 0 -10px 20px;
+}
+
+.grid a {
+    margin: 0;
+    flex: 1 1 33%;
+}
+
+a {
+    color: #4078c0;
+    text-decoration: none;
+}
+
+.grid a:hover .pokemon {
+    background: #e8f5e9;
+}
+
+.pokemon {
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 10px 20px;
+    padding: 16px 20px 20px;
+    background: #fff;
+    box-shadow: 0 1px 5px rgba(0,0,0,.1);
+    transition: background 0.1s;
+}
+
+.pokemon h2 {
+    font-size: 22px;
+    margin: 0 0 20px;
+}
+
+.pokemon img {
+    width: 140px;
+    height: 140px;
+}

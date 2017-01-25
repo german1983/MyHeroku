@@ -1,0 +1,36 @@
+{
+    "pokemon": [
+        {
+            "Id": 1,
+            "PokemonId": 1,
+            "AttackIV": 15,
+            "DefenseIV": 15,
+            "StaminaIV": 15,
+            "Level": 10
+        },
+        {
+            "Id": 1485301464624,
+            "PokemonId": "2",
+            "AttackIV": "14",
+            "DefenseIV": "12",
+            "StaminaIV": "12",
+            "Level": "12"
+        },
+        {
+            "Id": 1485302288997,
+            "PokemonId": 6,
+            "AttackIV": 19,
+            "DefenseIV": 12,
+            "StaminaIV": 12,
+            "Level": 12
+        },
+        {
+            "Id": 1485302307166,
+            "PokemonId": 150,
+            "AttackIV": 19,
+            "DefenseIV": 12,
+            "StaminaIV": 12,
+            "Level": 12
+        }
+    ]
+}

@@ -12270,7 +12270,7 @@ var IVCalculatorHome = exports.IVCalculatorHome = function (_React$Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            var path = '../pokemon/assets/baseStats.json';
+            var path = 'http://localhost:5000/api/pokemon/baseStats';
 
             fetch(path).then(function (response) {
                 return response.json();
@@ -12353,7 +12353,7 @@ var EvolutionCalculator = exports.EvolutionCalculator = function (_React$Compone
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -12365,509 +12365,560 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var PokemonSelector = function (_React$Component) {
-	_inherits(PokemonSelector, _React$Component);
+    _inherits(PokemonSelector, _React$Component);
 
-	function PokemonSelector(props) {
-		_classCallCheck(this, PokemonSelector);
+    function PokemonSelector(props) {
+        _classCallCheck(this, PokemonSelector);
 
-		return _possibleConstructorReturn(this, (PokemonSelector.__proto__ || Object.getPrototypeOf(PokemonSelector)).call(this, props));
-	}
+        return _possibleConstructorReturn(this, (PokemonSelector.__proto__ || Object.getPrototypeOf(PokemonSelector)).call(this, props));
+    }
 
-	_createClass(PokemonSelector, [{
-		key: "render",
-		value: function render() {
-			return React.createElement(
-				"article",
-				{ className: "primary" },
-				React.createElement(
-					"label",
-					null,
-					"Choose your Pok\xE9mon",
-					React.createElement("br", null)
-				),
-				React.createElement(
-					"select",
-					{ value: this.props.selectedPokemon, onChange: this.props.handleChange, name: "pokemon", tabIndex: "-1", className: "select-list", "aria-hidden": "true" },
-					this.props.allOptions
-				),
-				React.createElement(
-					"div",
-					{ className: "preview" },
-					React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/pokemon/' + this.props.selectedPokemon + '.png' })
-				)
-			);
-		}
-	}]);
+    _createClass(PokemonSelector, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "article",
+                { className: "primary" },
+                React.createElement(
+                    "label",
+                    null,
+                    "Choose your Pok\xE9mon",
+                    React.createElement("br", null)
+                ),
+                React.createElement(
+                    "select",
+                    { value: this.props.selectedPokemon, onChange: this.props.handleChange, name: "pokemon", tabIndex: "-1", className: "select-list", "aria-hidden": "true" },
+                    this.props.allOptions
+                ),
+                React.createElement(
+                    "div",
+                    { className: "preview" },
+                    React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/pokemon/' + this.props.selectedPokemon + '.png' })
+                )
+            );
+        }
+    }]);
 
-	return PokemonSelector;
+    return PokemonSelector;
 }(React.Component);
 
 var PokemonAttributes = function (_React$Component2) {
-	_inherits(PokemonAttributes, _React$Component2);
+    _inherits(PokemonAttributes, _React$Component2);
 
-	function PokemonAttributes(props) {
-		_classCallCheck(this, PokemonAttributes);
+    function PokemonAttributes(props) {
+        _classCallCheck(this, PokemonAttributes);
 
-		return _possibleConstructorReturn(this, (PokemonAttributes.__proto__ || Object.getPrototypeOf(PokemonAttributes)).call(this, props));
-	}
+        return _possibleConstructorReturn(this, (PokemonAttributes.__proto__ || Object.getPrototypeOf(PokemonAttributes)).call(this, props));
+    }
 
-	_createClass(PokemonAttributes, [{
-		key: "render",
-		value: function render() {
-			return React.createElement(
-				"article",
-				{ className: "secondary" },
-				React.createElement(
-					"div",
-					{ className: "data-grid header" },
-					React.createElement(
-						"div",
-						null,
-						"CP"
-					),
-					React.createElement(
-						"div",
-						null,
-						"HP"
-					),
-					React.createElement(
-						"div",
-						null,
-						"Dust"
-					)
-				),
-				React.createElement(
-					"div",
-					{ className: "data-values" },
-					React.createElement(
-						"div",
-						{ className: "data-grid" },
-						React.createElement(
-							"label",
-							null,
-							React.createElement("input", { type: "number", placeholder: "CP", value: this.props.attributes.cp, onChange: this.props.handleChangeCP })
-						),
-						React.createElement(
-							"label",
-							null,
-							React.createElement("input", { type: "number", placeholder: "HP", value: this.props.attributes.hp, onChange: this.props.handleChangeHP })
-						),
-						React.createElement(
-							"label",
-							null,
-							React.createElement("input", { type: "number", placeholder: "Dust", value: this.props.attributes.dust, onChange: this.props.handleChangeDust })
-						)
-					)
-				),
-				React.createElement(
-					"label",
-					{ className: "checkbox" },
-					React.createElement(
-						"div",
-						{ className: "check" },
-						React.createElement("input", { type: "checkbox", value: this.props.attributes.ct, name: "ct", onChange: this.props.handleChangeCT })
-					),
-					React.createElement(
-						"p",
-						null,
-						"You have just caught this Pok\xE9mon and not powered it up."
-					)
-				)
-			);
-		}
-	}]);
+    _createClass(PokemonAttributes, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "article",
+                { className: "secondary" },
+                React.createElement(
+                    "div",
+                    { className: "data-grid header" },
+                    React.createElement(
+                        "div",
+                        null,
+                        "CP"
+                    ),
+                    React.createElement(
+                        "div",
+                        null,
+                        "HP"
+                    ),
+                    React.createElement(
+                        "div",
+                        null,
+                        "Dust"
+                    )
+                ),
+                React.createElement(
+                    "div",
+                    { className: "data-values" },
+                    React.createElement(
+                        "div",
+                        { className: "data-grid" },
+                        React.createElement(
+                            "label",
+                            null,
+                            React.createElement("input", { type: "number", placeholder: "CP", value: this.props.attributes.cp, onChange: this.props.handleChangeCP })
+                        ),
+                        React.createElement(
+                            "label",
+                            null,
+                            React.createElement("input", { type: "number", placeholder: "HP", value: this.props.attributes.hp, onChange: this.props.handleChangeHP })
+                        ),
+                        React.createElement(
+                            "label",
+                            null,
+                            React.createElement("input", { type: "number", placeholder: "Dust", value: this.props.attributes.dust, onChange: this.props.handleChangeDust })
+                        )
+                    )
+                ),
+                React.createElement(
+                    "label",
+                    { className: "checkbox" },
+                    React.createElement(
+                        "div",
+                        { className: "check" },
+                        React.createElement("input", { type: "checkbox", value: this.props.attributes.ct, name: "ct", onChange: this.props.handleChangeCT })
+                    ),
+                    React.createElement(
+                        "p",
+                        null,
+                        "You have just caught this Pok\xE9mon and not powered it up."
+                    )
+                )
+            );
+        }
+    }]);
 
-	return PokemonAttributes;
+    return PokemonAttributes;
 }(React.Component);
 
-var IVCalculator = exports.IVCalculator = function (_React$Component3) {
-	_inherits(IVCalculator, _React$Component3);
+var PokemonTrainerInformation = function (_React$Component3) {
+    _inherits(PokemonTrainerInformation, _React$Component3);
 
-	function IVCalculator(props) {
-		_classCallCheck(this, IVCalculator);
+    function PokemonTrainerInformation(props) {
+        _classCallCheck(this, PokemonTrainerInformation);
 
-		var _this3 = _possibleConstructorReturn(this, (IVCalculator.__proto__ || Object.getPrototypeOf(IVCalculator)).call(this, props));
+        return _possibleConstructorReturn(this, (PokemonTrainerInformation.__proto__ || Object.getPrototypeOf(PokemonTrainerInformation)).call(this, props));
+    }
 
-		_this3.state = {
-			selectedPokemonId: '1',
-			selectedPokemon: {},
-			pokemonProperties: {
-				CP: 0,
-				HP: 0,
-				Dust: 0,
-				ct: false
-			}
-		};
+    _createClass(PokemonTrainerInformation, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "article",
+                { className: "secondary toggleable" },
+                React.createElement(
+                    "h2",
+                    { className: "toggle appraisal-toggle" },
+                    React.createElement(
+                        "div",
+                        { className: "title" },
+                        React.createElement("i", { className: "fa fa-angle-right" }),
+                        React.createElement("i", { className: "fa fa-angle-down" }),
+                        "Appraisal"
+                    ),
+                    React.createElement(
+                        "div",
+                        { className: "teams" },
+                        React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-mystic-vector.svg', "data-team": "mystic" }),
+                        React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-valor-vector.svg', "data-team": "valor" }),
+                        React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-instinct-vector.svg', "data-team": "instinct", className: "instinct" })
+                    ),
+                    React.createElement(
+                        "div",
+                        { className: "reset" },
+                        React.createElement("i", { className: "fa fa-undo" })
+                    )
+                ),
+                React.createElement(
+                    "div",
+                    { className: "advanced" },
+                    React.createElement(
+                        "div",
+                        { className: "teams" },
+                        React.createElement(
+                            "p",
+                            null,
+                            "Choose your team:"
+                        ),
+                        React.createElement(
+                            "div",
+                            { className: "images" },
+                            React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-mystic-vector.svg', "data-team": "mystic" }),
+                            React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-valor-vector.svg', "data-team": "valor" }),
+                            React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-instinct-vector.svg', "data-team": "instinct", className: "instinct" })
+                        ),
+                        React.createElement("hr", null)
+                    ),
+                    React.createElement(
+                        "div",
+                        { className: "team-content" },
+                        React.createElement(
+                            "div",
+                            { className: "check-grid" },
+                            React.createElement(
+                                "label",
+                                null,
+                                React.createElement("input", { type: "checkbox", name: "comment", value: "1" }),
+                                React.createElement("p", { "data-text": "overall" })
+                            ),
+                            React.createElement(
+                                "label",
+                                null,
+                                React.createElement("input", { type: "checkbox", name: "comment", value: "2" }),
+                                React.createElement("p", { "data-text": "overall" })
+                            ),
+                            React.createElement(
+                                "label",
+                                null,
+                                React.createElement("input", { type: "checkbox", name: "comment", value: "3" }),
+                                React.createElement("p", { "data-text": "overall" })
+                            ),
+                            React.createElement(
+                                "label",
+                                null,
+                                React.createElement("input", { type: "checkbox", name: "comment", value: "4" }),
+                                React.createElement("p", { "data-text": "overall" })
+                            )
+                        ),
+                        React.createElement("hr", null),
+                        React.createElement(
+                            "div",
+                            { className: "attribute" },
+                            React.createElement(
+                                "p",
+                                null,
+                                React.createElement("span", { "data-text-part": "first" }),
+                                React.createElement(
+                                    "select",
+                                    { name: "best_attr", className: "inline", size: "4" },
+                                    React.createElement(
+                                        "option",
+                                        { value: "" },
+                                        "--"
+                                    ),
+                                    React.createElement(
+                                        "option",
+                                        { value: "att" },
+                                        "Attack"
+                                    ),
+                                    React.createElement(
+                                        "option",
+                                        { value: "sta" },
+                                        "HP"
+                                    ),
+                                    React.createElement(
+                                        "option",
+                                        { value: "def" },
+                                        "Defense"
+                                    )
+                                ),
+                                React.createElement("span", { "data-text-part": "last" })
+                            ),
+                            React.createElement(
+                                "div",
+                                { className: "labels", style: { display: 'none' } },
+                                React.createElement(
+                                    "label",
+                                    { className: "fixed-center" },
+                                    React.createElement("input", { type: "checkbox", name: "extra_attr", value: "att" }),
+                                    React.createElement("span", { "data-text": "attributes", "data-replace": "Attack" })
+                                ),
+                                React.createElement(
+                                    "label",
+                                    { className: "fixed-center" },
+                                    React.createElement("input", { type: "checkbox", name: "extra_attr", value: "sta" }),
+                                    React.createElement("span", { "data-text": "attributes", "data-replace": "HP" })
+                                ),
+                                React.createElement(
+                                    "label",
+                                    { className: "fixed-center" },
+                                    React.createElement("input", { type: "checkbox", name: "extra_attr", value: "def" }),
+                                    React.createElement("span", { "data-text": "attributes", "data-replace": "Defense" })
+                                )
+                            )
+                        ),
+                        React.createElement("hr", null),
+                        React.createElement(
+                            "div",
+                            { className: "check-grid" },
+                            React.createElement(
+                                "label",
+                                null,
+                                React.createElement("input", { type: "checkbox", name: "stats", value: "1" }),
+                                React.createElement("p", { "data-text": "stats" })
+                            ),
+                            React.createElement(
+                                "label",
+                                null,
+                                React.createElement("input", { type: "checkbox", name: "stats", value: "2" }),
+                                React.createElement("p", { "data-text": "stats" })
+                            ),
+                            React.createElement(
+                                "label",
+                                null,
+                                React.createElement("input", { type: "checkbox", name: "stats", value: "3" }),
+                                React.createElement("p", { "data-text": "stats" })
+                            ),
+                            React.createElement(
+                                "label",
+                                null,
+                                React.createElement("input", { type: "checkbox", name: "stats", value: "4" }),
+                                React.createElement("p", { "data-text": "stats" })
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
 
-		_this3.handleChangeSelectedPokemon = _this3.handleChangeSelectedPokemon.bind(_this3);
-		_this3.handlePropChangeCP = _this3.handlePropChangeCP.bind(_this3);
-		_this3.handlePropChangeHP = _this3.handlePropChangeHP.bind(_this3);
-		_this3.handlePropChangeDust = _this3.handlePropChangeDust.bind(_this3);
-		_this3.handlePropChangeCT = _this3.handlePropChangeCT.bind(_this3);
-		_this3.handleSubmit = _this3.handleSubmit.bind(_this3);
-		return _this3;
-	}
+    return PokemonTrainerInformation;
+}(React.Component);
 
-	_createClass(IVCalculator, [{
-		key: "handleChangeSelectedPokemon",
-		value: function handleChangeSelectedPokemon(event) {
-			this.setState({
-				selectedPokemonId: event.target.value,
-				selectedPokemon: this.getPokemonDetailsById(event.target.value)
-			});
-		}
-	}, {
-		key: "handlePropChangeCP",
-		value: function handlePropChangeCP(event) {
-			this.setState({
-				pokemonProperties: {
-					CP: event.target.value,
-					HP: this.state.pokemonProperties.HP,
-					Dust: this.state.pokemonProperties.Dust,
-					ct: this.state.pokemonProperties.ct
-				}
-			});
-		}
-	}, {
-		key: "handlePropChangeHP",
-		value: function handlePropChangeHP(event) {
-			this.setState({
-				pokemonProperties: {
-					CP: this.state.pokemonProperties.CP,
-					HP: event.target.value,
-					Dust: this.state.pokemonProperties.Dust,
-					ct: this.state.pokemonProperties.ct
-				}
-			});
-		}
-	}, {
-		key: "handlePropChangeDust",
-		value: function handlePropChangeDust(event) {
-			this.setState({
-				pokemonProperties: {
-					CP: this.state.pokemonProperties.CP,
-					HP: this.state.pokemonProperties.HP,
-					Dust: event.target.value,
-					ct: this.state.pokemonProperties.ct
-				}
-			});
-		}
-	}, {
-		key: "handlePropChangeCT",
-		value: function handlePropChangeCT(event) {
-			this.setState({
-				pokemonProperties: {
-					CP: this.state.pokemonProperties.CP,
-					HP: this.state.pokemonProperties.HP,
-					Dust: this.state.pokemonProperties.Dust,
-					ct: event.target.checked
-				}
-			});
-		}
-	}, {
-		key: "handleSubmit",
-		value: function handleSubmit(event) {
-			alert('Your Selected Pokemon is: ' + JSON.stringify(this.state.selectedPokemon));
-			alert('Your Pokemon Properties are: ' + JSON.stringify(this.state.pokemonProperties));
-			event.preventDefault();
-		}
-	}, {
-		key: "getPokemonDetailsById",
-		value: function getPokemonDetailsById(pokemonId) {
-			if (this.props.all.pokemon !== undefined) {
-				var i = 0;
-				for (; i < this.props.all.pokemon.length; i++) {
-					if (this.props.all.pokemon[i].Id == pokemonId) {
-						return this.props.all.pokemon[i];
-					}
-				}
-			} else {
-				return undefined;
-			}
-		}
-	}, {
-		key: "render",
-		value: function render() {
-			var allOptions = [React.createElement(
-				"option",
-				{ key: 0 },
-				"---"
-			)];
+var IVCalculator = exports.IVCalculator = function (_React$Component4) {
+    _inherits(IVCalculator, _React$Component4);
 
-			if (this.props.all.pokemon !== undefined) {
-				this.props.all.pokemon.forEach(function (pokemon) {
-					allOptions.push(React.createElement(
-						"option",
-						{ key: pokemon.Id, value: pokemon.Id },
-						pokemon.Name
-					));
-				});
-			}
-			return React.createElement(
-				"form",
-				{ onSubmit: this.handleSubmit, className: "main calculate", autoComplete: "off" },
-				React.createElement(PokemonSelector, { selectedPokemon: this.state.selectedPokemonId, allOptions: allOptions, handleChange: this.handleChangeSelectedPokemon }),
-				React.createElement(PokemonAttributes, { attributes: this.state.pokemonProperties,
-					handleChangeCP: this.handlePropChangeCP,
-					handleChangeHP: this.handlePropChangeHP,
-					handleChangeDust: this.handlePropChangeDust,
-					handleChangeCT: this.handlePropChangeCT
-				}),
-				React.createElement(
-					"article",
-					{ className: "secondary toggleable" },
-					React.createElement(
-						"h2",
-						{ className: "toggle appraisal-toggle" },
-						React.createElement(
-							"div",
-							{ className: "title" },
-							React.createElement("i", { className: "fa fa-angle-right" }),
-							React.createElement("i", { className: "fa fa-angle-down" }),
-							"Appraisal"
-						),
-						React.createElement(
-							"div",
-							{ className: "teams" },
-							React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-mystic-vector.svg', "data-team": "mystic" }),
-							React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-valor-vector.svg', "data-team": "valor" }),
-							React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-instinct-vector.svg', "data-team": "instinct", className: "instinct" })
-						),
-						React.createElement(
-							"div",
-							{ className: "reset" },
-							React.createElement("i", { className: "fa fa-undo" })
-						)
-					),
-					React.createElement(
-						"div",
-						{ className: "advanced" },
-						React.createElement(
-							"div",
-							{ className: "teams" },
-							React.createElement(
-								"p",
-								null,
-								"Choose your team:"
-							),
-							React.createElement(
-								"div",
-								{ className: "images" },
-								React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-mystic-vector.svg', "data-team": "mystic" }),
-								React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-valor-vector.svg', "data-team": "valor" }),
-								React.createElement("img", { src: 'https://pokemon.gameinfo.io/images/tools/team-instinct-vector.svg', "data-team": "instinct", className: "instinct" })
-							),
-							React.createElement("hr", null)
-						),
-						React.createElement(
-							"div",
-							{ className: "team-content" },
-							React.createElement(
-								"div",
-								{ className: "check-grid" },
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "checkbox", name: "comment", value: "1" }),
-									React.createElement("p", { "data-text": "overall" })
-								),
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "checkbox", name: "comment", value: "2" }),
-									React.createElement("p", { "data-text": "overall" })
-								),
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "checkbox", name: "comment", value: "3" }),
-									React.createElement("p", { "data-text": "overall" })
-								),
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "checkbox", name: "comment", value: "4" }),
-									React.createElement("p", { "data-text": "overall" })
-								)
-							),
-							React.createElement("hr", null),
-							React.createElement(
-								"div",
-								{ className: "attribute" },
-								React.createElement(
-									"p",
-									null,
-									React.createElement("span", { "data-text-part": "first" }),
-									React.createElement(
-										"select",
-										{ name: "best_attr", className: "inline", size: "4" },
-										React.createElement(
-											"option",
-											{ value: "" },
-											"--"
-										),
-										React.createElement(
-											"option",
-											{ value: "att" },
-											"Attack"
-										),
-										React.createElement(
-											"option",
-											{ value: "sta" },
-											"HP"
-										),
-										React.createElement(
-											"option",
-											{ value: "def" },
-											"Defense"
-										)
-									),
-									React.createElement("span", { "data-text-part": "last" })
-								),
-								React.createElement(
-									"div",
-									{ className: "labels", style: { display: 'none' } },
-									React.createElement(
-										"label",
-										{ className: "fixed-center" },
-										React.createElement("input", { type: "checkbox", name: "extra_attr", value: "att" }),
-										React.createElement("span", { "data-text": "attributes", "data-replace": "Attack" })
-									),
-									React.createElement(
-										"label",
-										{ className: "fixed-center" },
-										React.createElement("input", { type: "checkbox", name: "extra_attr", value: "sta" }),
-										React.createElement("span", { "data-text": "attributes", "data-replace": "HP" })
-									),
-									React.createElement(
-										"label",
-										{ className: "fixed-center" },
-										React.createElement("input", { type: "checkbox", name: "extra_attr", value: "def" }),
-										React.createElement("span", { "data-text": "attributes", "data-replace": "Defense" })
-									)
-								)
-							),
-							React.createElement("hr", null),
-							React.createElement(
-								"div",
-								{ className: "check-grid" },
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "checkbox", name: "stats", value: "1" }),
-									React.createElement("p", { "data-text": "stats" })
-								),
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "checkbox", name: "stats", value: "2" }),
-									React.createElement("p", { "data-text": "stats" })
-								),
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "checkbox", name: "stats", value: "3" }),
-									React.createElement("p", { "data-text": "stats" })
-								),
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "checkbox", name: "stats", value: "4" }),
-									React.createElement("p", { "data-text": "stats" })
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					"article",
-					{ className: "secondary toggleable" },
-					React.createElement(
-						"h2",
-						{ className: "toggle advanced-toggle" },
-						React.createElement(
-							"div",
-							{ className: "title" },
-							React.createElement("i", { className: "fa fa-angle-right" }),
-							React.createElement("i", { className: "fa fa-angle-down" }),
-							"Advanced options"
-						),
-						React.createElement(
-							"div",
-							{ className: "reset" },
-							React.createElement("i", { className: "fa fa-undo" })
-						)
-					),
-					React.createElement(
-						"div",
-						{ className: "advanced" },
-						React.createElement(
-							"label",
-							{ className: "multi double" },
-							React.createElement(
-								"div",
-								{ className: "check" },
-								React.createElement("input", { type: "checkbox", name: "ev" })
-							),
-							React.createElement(
-								"p",
-								null,
-								"You have powered up the Pok\xE9mon and the next power-up requires a higher amount of stardust. **"
-							)
-						),
-						React.createElement("hr", null),
-						React.createElement(
-							"p",
-							{ className: "add-levels" },
-							"Enter the Pok\xE9mon's new stats after powering up to narrow down the results:     "
-						),
-						React.createElement(
-							"div",
-							{ className: "data-values new" },
-							React.createElement(
-								"div",
-								{ className: "data-grid" },
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "number", lang: "nb", name: "cp", placeholder: "CP" })
-								),
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "number", name: "hp", placeholder: "HP" })
-								),
-								React.createElement(
-									"label",
-									null,
-									React.createElement("input", { type: "number", name: "dust", placeholder: "Dust" })
-								)
-							)
-						)
-					)
-				),
-				React.createElement(
-					"article",
-					{ className: "secondary" },
-					React.createElement("div", { className: "message alert" }),
-					React.createElement(
-						"div",
-						{ className: "submit" },
-						React.createElement(
-							"button",
-							{ type: "reset", className: "reset" },
-							"Reset"
-						),
-						React.createElement("input", { type: "submit", value: "Calculate \xBB" }),
-						"// ",
-						React.createElement("button", { type: "submit", className: "calculate" })
-					)
-				)
-			);
-		}
-	}]);
+    function IVCalculator(props) {
+        _classCallCheck(this, IVCalculator);
 
-	return IVCalculator;
+        var _this4 = _possibleConstructorReturn(this, (IVCalculator.__proto__ || Object.getPrototypeOf(IVCalculator)).call(this, props));
+
+        _this4.state = {
+            selectedPokemonId: '0',
+            selectedPokemon: {},
+            pokemonProperties: {
+                CP: 0,
+                HP: 0,
+                Dust: 0,
+                ct: false
+            },
+            trainerInfo: {
+                answer1: 0,
+                answer2: 0,
+                isAtt: false,
+                isDef: false,
+                isSta: false
+            }
+        };
+
+        _this4.handleChangeSelectedPokemon = _this4.handleChangeSelectedPokemon.bind(_this4);
+        _this4.handlePropChangeCP = _this4.handlePropChangeCP.bind(_this4);
+        _this4.handlePropChangeHP = _this4.handlePropChangeHP.bind(_this4);
+        _this4.handlePropChangeDust = _this4.handlePropChangeDust.bind(_this4);
+        _this4.handlePropChangeCT = _this4.handlePropChangeCT.bind(_this4);
+        _this4.handleSubmit = _this4.handleSubmit.bind(_this4);
+        return _this4;
+    }
+
+    _createClass(IVCalculator, [{
+        key: "handleChangeSelectedPokemon",
+        value: function handleChangeSelectedPokemon(event) {
+            this.setState({
+                selectedPokemonId: event.target.value,
+                selectedPokemon: this.getPokemonDetailsById(event.target.value)
+            });
+        }
+    }, {
+        key: "handlePropChangeCP",
+        value: function handlePropChangeCP(event) {
+            this.setState({
+                pokemonProperties: {
+                    CP: event.target.value,
+                    HP: this.state.pokemonProperties.HP,
+                    Dust: this.state.pokemonProperties.Dust,
+                    ct: this.state.pokemonProperties.ct
+                }
+            });
+        }
+    }, {
+        key: "handlePropChangeHP",
+        value: function handlePropChangeHP(event) {
+            this.setState({
+                pokemonProperties: {
+                    CP: this.state.pokemonProperties.CP,
+                    HP: event.target.value,
+                    Dust: this.state.pokemonProperties.Dust,
+                    ct: this.state.pokemonProperties.ct
+                }
+            });
+        }
+    }, {
+        key: "handlePropChangeDust",
+        value: function handlePropChangeDust(event) {
+            this.setState({
+                pokemonProperties: {
+                    CP: this.state.pokemonProperties.CP,
+                    HP: this.state.pokemonProperties.HP,
+                    Dust: event.target.value,
+                    ct: this.state.pokemonProperties.ct
+                }
+            });
+        }
+    }, {
+        key: "handlePropChangeCT",
+        value: function handlePropChangeCT(event) {
+            this.setState({
+                pokemonProperties: {
+                    CP: this.state.pokemonProperties.CP,
+                    HP: this.state.pokemonProperties.HP,
+                    Dust: this.state.pokemonProperties.Dust,
+                    ct: event.target.checked
+                }
+            });
+        }
+    }, {
+        key: "handleChangeAnswer1",
+        value: function handleChangeAnswer1(event) {
+            this.setState({
+                trainerInfo: {
+                    answer1: event.target.value,
+                    answer2: this.state.trainerInfo.answer2,
+                    isAtt: this.state.trainerInfo.isAtt,
+                    isDef: this.state.trainerInfo.isDef,
+                    isSta: this.state.trainerInfo.isSta
+                }
+            });
+        }
+    }, {
+        key: "handleChangeAnswer2",
+        value: function handleChangeAnswer2(event) {
+            this.setState({
+                trainerInfo: {
+                    answer1: this.state.trainerInfo.answer1,
+                    answer2: event.target.value,
+                    isAtt: this.state.trainerInfo.isAtt,
+                    isDef: this.state.trainerInfo.isDef,
+                    isSta: this.state.trainerInfo.isSta
+                }
+            });
+        }
+    }, {
+        key: "handleChangeIsAtt",
+        value: function handleChangeIsAtt(event) {
+            this.setState({
+                trainerInfo: {
+                    answer1: this.state.trainerInfo.answer1,
+                    answer2: this.state.trainerInfo.answer2,
+                    isAtt: event.target.checked,
+                    isDef: this.state.trainerInfo.isDef,
+                    isSta: this.state.trainerInfo.isSta
+                }
+            });
+        }
+    }, {
+        key: "handleChangeIsDef",
+        value: function handleChangeIsDef(event) {
+            this.setState({
+                trainerInfo: {
+                    answer1: this.state.trainerInfo.answer1,
+                    answer2: this.state.trainerInfo.answer2,
+                    isAtt: this.state.trainerInfo.isAtt,
+                    isDef: event.target.checked,
+                    isSta: this.state.trainerInfo.isSta
+                }
+            });
+        }
+    }, {
+        key: "handleChangeIsSta",
+        value: function handleChangeIsSta(event) {
+            this.setState({
+                trainerInfo: {
+                    answer1: this.state.trainerInfo.answer1,
+                    answer2: this.state.trainerInfo.answer2,
+                    isAtt: this.state.trainerInfo.isAtt,
+                    isDef: this.state.trainerInfo.isDef,
+                    isSta: event.target.checked
+                }
+            });
+        }
+    }, {
+        key: "handleSubmit",
+        value: function handleSubmit(event) {
+            this.addNewPokemon();
+            alert('Your Selected Pokemon is: ' + JSON.stringify(this.state.selectedPokemon));
+            alert('Your Pokemon Properties are: ' + JSON.stringify(this.state.pokemonProperties));
+            alert('Your Trainer Info is: ' + JSON.stringify(this.state.trainerInfo));
+            event.preventDefault();
+        }
+    }, {
+        key: "getPokemonDetailsById",
+        value: function getPokemonDetailsById(pokemonId) {
+            if (this.props.all.pokemon !== undefined) {
+                var i = 0;
+                for (; i < this.props.all.pokemon.length; i++) {
+                    if (this.props.all.pokemon[i].Id == pokemonId) {
+                        return this.props.all.pokemon[i];
+                    }
+                }
+            } else {
+                return undefined;
+            }
+        }
+    }, {
+        key: "addNewPokemon",
+        value: function addNewPokemon() {
+            fetch('http://localhost:5000/api/pokemon', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    pokemonId: this.state.selectedPokemon.Id,
+                    attackIV: 19,
+                    defenseIV: 12,
+                    staminaIV: 12,
+                    level: 12
+                })
+            });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var allOptions = [React.createElement(
+                "option",
+                { key: 0 },
+                "---"
+            )];
+
+            if (this.props.all.pokemon !== undefined) {
+                this.props.all.pokemon.forEach(function (pokemon) {
+                    allOptions.push(React.createElement(
+                        "option",
+                        { key: pokemon.Id, value: pokemon.Id },
+                        pokemon.Name
+                    ));
+                });
+            }
+            return React.createElement(
+                "form",
+                { onSubmit: this.handleSubmit, className: "main calculate", autoComplete: "off" },
+                React.createElement(PokemonSelector, { selectedPokemon: this.state.selectedPokemonId, allOptions: allOptions, handleChange: this.handleChangeSelectedPokemon }),
+                React.createElement(PokemonAttributes, { attributes: this.state.pokemonProperties,
+                    handleChangeCP: this.handlePropChangeCP,
+                    handleChangeHP: this.handlePropChangeHP,
+                    handleChangeDust: this.handlePropChangeDust,
+                    handleChangeCT: this.handlePropChangeCT
+                }),
+                React.createElement(PokemonTrainerInformation, { result: this.state.trainerInfo,
+                    handleAnswer1: this.handleChangeAnswer1,
+                    handleAnswer2: this.handleChangeAnswer2,
+                    handleIsAtt: this.handleChangeIsAtt,
+                    handleIsDef: this.handleChangeIsDef,
+                    handleIsSta: this.handleChangeIsSta
+
+                }),
+                React.createElement(
+                    "article",
+                    { className: "secondary" },
+                    React.createElement("div", { className: "message alert" }),
+                    React.createElement(
+                        "div",
+                        { className: "submit" },
+                        React.createElement(
+                            "button",
+                            { type: "reset", className: "reset" },
+                            "Reset"
+                        ),
+                        React.createElement("input", { type: "submit", value: "Calculate \xBB" }),
+                        "// ",
+                        React.createElement("button", { type: "submit", className: "calculate" })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return IVCalculator;
 }(React.Component);
 
 /***/ }),

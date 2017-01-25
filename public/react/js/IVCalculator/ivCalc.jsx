@@ -176,7 +176,7 @@ export class IVCalculator extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedPokemonId: '1',
+            selectedPokemonId: '0',
             selectedPokemon: {},
             pokemonProperties:{
                 CP: 0,
@@ -190,7 +190,6 @@ export class IVCalculator extends React.Component {
                 isAtt: false,
                 isDef: false,
                 isSta: false,
-
             }
         };
 
@@ -313,6 +312,7 @@ export class IVCalculator extends React.Component {
     }
 
     handleSubmit(event) {
+        this.addNewPokemon();
         alert('Your Selected Pokemon is: ' + JSON.stringify(this.state.selectedPokemon));
         alert('Your Pokemon Properties are: ' + JSON.stringify(this.state.pokemonProperties));
         alert('Your Trainer Info is: ' + JSON.stringify(this.state.trainerInfo));
@@ -330,6 +330,23 @@ export class IVCalculator extends React.Component {
         } else {
             return undefined;
         }
+    }
+
+    addNewPokemon(){
+        fetch('http://localhost:5000/api/pokemon', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                pokemonId:this.state.selectedPokemon.Id,
+                attackIV:19,
+                defenseIV:12,
+                staminaIV:12,
+                level:12
+            })
+        })
     }
 
     render() {

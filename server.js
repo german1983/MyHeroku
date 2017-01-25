@@ -60,6 +60,10 @@ var levels = require('./routes/level');
 var questionTypes = require('./routes/questionType');
 var technologies = require('./routes/technology');
 var testQuestions = require('./routes/testQuestion');
+// POKEMON ROUTES
+var pkBaseStats = require('./routes/pokemon/baseStats');
+var pkPokemons = require('./routes/pokemon/pokemon');
+
 
 // REGISTER OUR ROUTES -------------------------------
 app.use('/api/questions', questions);
@@ -73,6 +77,9 @@ app.use('/api/levels', levels);
 app.use('/api/questionTypes', questionTypes);
 app.use('/api/technologies', technologies);
 app.use('/api/testQuestions', testQuestions);
+// POKEMON REGISTRATION
+app.use('/api/pokemon/baseStats', pkBaseStats);
+app.use('/api/pokemon', pkPokemons);
 
 // START THE SERVER
 // =============================================================================

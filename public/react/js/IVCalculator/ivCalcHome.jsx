@@ -9,7 +9,7 @@ export class IVCalculatorHome extends React.Component {
   };
 
   componentDidMount() {
-      var path = 'http://localhost:5000/api/pokemon/baseStats';
+      var path = '/api/pokemon/baseStats';
 
       fetch(path)
           .then( (response) => {

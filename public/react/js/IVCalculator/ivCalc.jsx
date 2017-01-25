@@ -333,7 +333,7 @@ export class IVCalculator extends React.Component {
     }
 
     addNewPokemon(){
-        fetch('http://localhost:5000/api/pokemon', {
+        fetch('/api/pokemon', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

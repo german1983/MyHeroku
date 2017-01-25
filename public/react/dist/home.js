@@ -12270,7 +12270,7 @@ var IVCalculatorHome = exports.IVCalculatorHome = function (_React$Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            var path = 'http://localhost:5000/api/pokemon/baseStats';
+            var path = '/api/pokemon/baseStats';
 
             fetch(path).then(function (response) {
                 return response.json();
@@ -12846,7 +12846,7 @@ var IVCalculator = exports.IVCalculator = function (_React$Component4) {
     }, {
         key: "addNewPokemon",
         value: function addNewPokemon() {
-            fetch('http://localhost:5000/api/pokemon', {
+            fetch('/api/pokemon', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
